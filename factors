@@ -1,0 +1,32 @@
+#!/usr/bin/python3
+# library to get arguments
+import sys
+
+
+# fn unpack number factorial
+def fact():
+    """
+    function fact to search file to convert number and format n=p*q
+    """
+    try:
+        rev_file = sys.argv[1]
+        with open(rev_file) as f:
+            for rev_number in f:
+                rev_number = int(rev_number)
+                if rev_number % 2 == 0:
+                        print("{}={}*{}".format(rev_number, rev_number // 2, 2))
+                        continue
+                i = 3
+                while i < rev_number // 2:
+                    if rev_number % i == 0:
+                        print("{}={}*{}".format(rev_number, rev_number // i, i))
+                        break
+                    i = i + 2
+                if i == (rev_number // 2) + 1:
+                    print("{}={}*{}".format(rev_number, rev_number, 1))
+    except (IndexError):
+        pass
+
+
+# autostart
+fact()
